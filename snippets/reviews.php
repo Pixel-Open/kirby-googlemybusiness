@@ -16,7 +16,8 @@
                     endfor ?>
                 </div>
                 <p class="comment"><?= esc($review['comment'], 'html') ?></p>
-                <p class=author><?= strtok(esc($review['author'], 'html'), ' ') ?></p>
+                <p class="author"><?= strtok(esc($review['author'], 'html'), ' ') ?></p>
+                <p class="date"><?= ($date = date_create($review['date'])) ? date_format($date, 'd/m/Y') : '' ?></p>
                 <br>
             </div>
         <?php endif ?>

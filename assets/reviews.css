@@ -1,10 +1,8 @@
-/* ------- Reviews Container ------- */
 .reviews {
     display: flex;
     gap: 2rem;
 }
 
-/* ------- Individual review ------- */
 .review {
     width: 100%;
     padding: 2rem;
@@ -14,28 +12,32 @@
     position: relative;
 }
 
-/* ------- Star Style ------- */
 .rate {
     font-size: 20px;
     text-align: center;
     padding-bottom: 0.7rem;
 }
 
-/* ------- Star filling color ------- */
 .orange {
     color: orange;
 }
 
-/* ------- Comment Style ------- */
 .comment {
     text-align: justify;
 }
 
-/* ------- Author Style ------- */
 .author {
     font-weight: bold;
     position: absolute;
     font-size: 20px;
     bottom: 1rem;
     right: 2rem;
+}
+
+.date {
+    position: absolute;
+    color: grey;
+    font-size: 14px;
+    bottom: 1rem;
+    left: 2rem;
 }
