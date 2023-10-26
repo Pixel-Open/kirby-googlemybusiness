@@ -1,0 +1,203 @@
+label: pixelopen.googlemybusiness.tabs
+
+columns:
+  - width: 2/3
+    fields:
+      overwrite_data:
+        type: toggle
+        label: pixelopen.googlemybusiness.tabs.overwrite_data
+        width: 1/5
+        text:
+          - en: "No"
+            fr: "Non"
+            de: "Nein"
+          - en: "Yes"
+            fr: "Oui"
+            de: "Ja"
+      
+      gap1:
+        type: gap
+        width: 4/5
+
+      street_number:
+        label: pixelopen.googlemybusiness.tabs.street_number
+        type: text
+        width: 1/10
+
+      address:
+        label: pixelopen.googlemybusiness.tabs.address
+        type: text
+        width: 1/3
+
+      city:
+        label: pixelopen.googlemybusiness.tabs.city
+        type: text
+        width: 1/4
+
+      postal_code:
+        label: pixelopen.googlemybusiness.tabs.postal_code
+        type: text
+        width: 1/6
+
+      country:
+        label: pixelopen.googlemybusiness.tabs.country
+        type: text
+        width: 1/6
+      
+      latitude:
+        label: pixelopen.googlemybusiness.tabs.latitude
+        type: text
+        placeholder: 44.4957454
+        width: 1/3
+      
+      longitude:
+        label: pixelopen.googlemybusiness.tabs.longitude
+        type: text
+        placeholder: 4.7490933
+        width: 1/3
+      
+      phone:
+        label: pixelopen.googlemybusiness.tabs.phone
+        type: tel
+        width: 1/3
+      
+      line:
+
+      rating:
+        label: pixelopen.googlemybusiness.tabs.rating
+        type: text
+        width: 1/10
+        disabled: true
+
+      reviews_count:
+        label: pixelopen.googlemybusiness.tabs.reviews_count
+        type: text
+        width: 1/6
+        disabled: true
+
+      reviews_type:
+        type: select
+        label: pixelopen.googlemybusiness.tabs.reviews_type
+        width: 1/4
+        required: true
+        default: "most_relevant"
+        options:
+          - value: "most_relevant"
+            text:
+              en: "Most relevant"
+              fr: "Plus pertinents"
+              de: "Relevantesten"
+          - value: "newest"
+            text:
+              en: "Newest"
+              fr: "Plus récents"
+              de: "Neueste"
+
+      get_uncomment:
+        type: toggle
+        width: 1/4
+        label: pixelopen.googlemybusiness.tabs.get_uncomment
+        text:
+          - en: "No"
+            fr: "Non"
+            de: "Nein"
+          - en: "Yes"
+            fr: "Oui"
+            de: "Ja"
+
+      minimum_rating:
+        type: number
+        width: 1/4
+        required: true
+        default: 1
+        min: 1
+        max: 5
+        label: pixelopen.googlemybusiness.tabs.minimum_rating
+
+  - width: 1/3
+    fields:
+      overwrite_hours:
+        type: toggle
+        label: pixelopen.googlemybusiness.tabs.overwrite_hours
+        text:
+          - en: "No"
+            fr: "Non"
+            de: "Nein"
+          - en: "Yes"
+            fr: "Oui"
+            de: "Ja"
+
+      opening_hours:
+        label: pixelopen.googlemybusiness.tabs.opening_hours
+        type: structure
+        fields:
+          weekday:
+            label: pixelopen.googlemybusiness.tabs.weekday
+            type: select
+            required: true
+            default: monday
+            options:
+              monday: Monday
+              tuesday: Tuesday
+              wednesday: Wednesday
+              thursday: Thursday
+              friday: Friday
+              saturday: Saturday
+              sunday: Sunday
+          open:
+            width: 1/2
+            label: pixelopen.googlemybusiness.tabs.start_morning
+            type: time 
+          close:
+            width: 1/2
+            label: pixelopen.googlemybusiness.tabs.end_morning
+            type: time 
+
+  - width: 1/1
+    sections:
+      reviews:
+        type: fields
+        fields:
+          reviews_list:
+            type: structure
+            label: pixelopen.googlemybusiness.tabs.reviews
+            help: pixelopen.googlemybusiness.tabs.reviews_list.help
+            columns:
+              show:
+                width: 1/10
+              rating:
+                width: 1/10
+              author:
+                width: 1/5
+              date:
+                width: 1/5
+              comment:
+                width: 1/1
+            fields:
+              show:
+                label: pixelopen.googlemybusiness.tabs.show
+                type: toggle
+                width: 1/6
+                default: true
+                text:
+                  - ""
+                  - ""
+              rating:
+                disabled: true
+                label: pixelopen.googlemybusiness.tabs.rating
+                width: 1/6
+                type: text
+              author:
+                disabled: true
+                width: 1/3
+                label: pixelopen.googlemybusiness.tabs.author
+                type: text
+              date:
+                disabled: true
+                width: 1/3
+                label: pixelopen.googlemybusiness.tabs.date
+                type: text
+              comment:
+                disabled: true
+                label: pixelopen.googlemybusiness.tabs.comment
+                type: textarea
