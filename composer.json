@@ -21,7 +21,7 @@
     "getkirby/cli": "^1.1"
   },
   "extra": {
-    "installer-name": "kirby-button"
+    "installer-name": "kirby-googlemybusiness"
   },
   "config": {
     "allow-plugins": {
