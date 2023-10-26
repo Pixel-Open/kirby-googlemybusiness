@@ -7,9 +7,9 @@
                 <div class="rate">
                     <?php for ($i = 0; $i < 5; $i++):
                         if ($i < $review['rating']): ?>
-                            <span class="orange">&#x2605</span>
+                            <span class="orange">&#x2605;</span>
                         <?php else: ?>
-                            <span class="">&#x2605</span>
+                            <span class="">&#x2605;</span>
                         <?php endif;
                     endfor ?>
                 </div>

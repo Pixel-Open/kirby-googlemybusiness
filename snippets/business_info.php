@@ -22,8 +22,10 @@
     <a id="openModal"><?= t('pixelopen.googlemybusiness.business_info.show_info') ?></a>
     <div id="modal" class="modal">
         <div class="modal-content">
-            <p><?= $street_number?>, <?= $address ?> <?= $postal_code ?> <?= $city ?>, <?= $country ?></p>
-            <p><?= $phone ?></p>
+            <span style="font-weight: bold">&#x1F4CD;</span> <a class="location" target="_blank" href="https://www.google.com/maps/place/?q=place_id:<?= option('pixelopen.googlemybusiness.placeId') ?>"><?= $street_number?>, <?= $address ?> <?= $postal_code ?> <?= $city ?>, <?= $country ?></a>
+            <br>
+            <span>&#x1F4DE;</span> <a class="phone" href="tel:<?= str_replace(' ', '', $phone) ?>"><?= $phone ?></a>
+            <br>
             <br>
             <div class="opening_hours">
                 <div class="weekday">
@@ -125,5 +127,13 @@
         outline-width: 2px;
         outline-offset: 2px;
         outline-color: #4f46e5;
+    }
+
+    .phone:hover{
+        color: gray;
+    }
+
+    .location:hover{
+        color: gray;
     }
 </style>
