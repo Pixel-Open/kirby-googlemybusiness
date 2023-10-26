@@ -49,6 +49,9 @@ From this page you can change data manually.
 The plugin adds two snippets : `reviews` and `business_info`.
 They respectivly create a reviews container and a button that will open a window with Google My Business data.
 You can integrate them wherever you need them.
+Both plugins are provided with a basic CSS style, it is up to you to modify them according to your website aspect.
+
+The plugin functionnalities work well with Kirby 3 and 4, but some dispositions issues may occur in the panel under Kirby 3.
 
 ## Options
 

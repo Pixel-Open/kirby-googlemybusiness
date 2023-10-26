@@ -1,11 +1,22 @@
 <div class="business_info">
     <?php
         $content = site()->content();
-    $address = $content->address();
-    $street_number = $content->street_number();
-    $postal_code = $content->postal_code();
-    $city = $content->city();
-    $country = $content->country();
+    $full_address = [];
+    if (($address = $content->address()) != '') {
+        if (($street_number = $content->street_number()) != '') {
+            $full_address[] = $street_number . ",";
+        }
+        $full_address[] = $address;
+    }
+    if (($postal_code = $content->postal_code()) != '') {
+        $full_address[] = $postal_code;
+    }
+    if (($city = $content->city()) != '') {
+        $full_address[] = $content->country() != '' ? $city . "," : $city;
+    }
+    if (($country = $content->country()) != '') {
+        $full_address[] = $country;
+    }
     $phone = $content->phone();
     $opening_hours = $content->opening_hours()->toObject()->toArray();
     $schedule = [];
@@ -22,27 +33,44 @@
     <a id="openModal"><?= t('pixelopen.googlemybusiness.business_info.show_info') ?></a>
     <div id="modal" class="modal">
         <div class="modal-content">
-            <span style="font-weight: bold">&#x1F4CD;</span> <a class="location" target="_blank" href="https://www.google.com/maps/place/?q=place_id:<?= option('pixelopen.googlemybusiness.placeId') ?>"><?= $street_number?>, <?= $address ?> <?= $postal_code ?> <?= $city ?>, <?= $country ?></a>
+            <?php if (count($full_address)): ?>
+                <span style="font-weight: bold">&#x1F4CD;</span>
+                <?php if (option('pixelopen.googlemybusiness.placeId') != ''): ?>
+                <a class="location" target="_blank" href="https://www.google.com/maps/place/?q=place_id:<?= option('pixelopen.googlemybusiness.placeId') ?>">
+                    <?= implode(' ', $full_address) ?>
+                </a>
+                <?php else: ?>
+                <span>
+                    <?= implode(' ', $full_address) ?>
+                </span>
+                <?php endif ?>
+                <br>
+            <?php endif ?>
+            <?php if ($phone != ''): ?>
+                <span>&#x1F4DE;</span> <a class="phone" href="tel:<?= str_replace(' ', '', $phone) ?>"><?= $phone ?></a>
+                <br>
+            <?php endif ?>
+
             <br>
-            <span>&#x1F4DE;</span> <a class="phone" href="tel:<?= str_replace(' ', '', $phone) ?>"><?= $phone ?></a>
-            <br>
-            <br>
-            <div class="opening_hours">
-                <div class="weekday">
-                    <?php foreach ($schedule as $day => $periods): ?>
-                        <?= t('pixelopen.googlemybusiness.' . $day) ?>:
-                        <br>
-                    <?php endforeach ?>
-                </div>
-                <div class="hours">
-                    <?php foreach ($schedule as $day => $periods): ?>
-                        <?php foreach ($periods as $period): ?>
-                            <?= $period != reset($periods) ? ", " : "" ?><?= substr($period['open'], 0, 5) ?> - <?= substr($period['close'], 0, 5) ?>
+            
+            <?php if (count($opening_hours) > 0): ?>
+                <div class="opening_hours">
+                    <div class="weekday">
+                        <?php foreach ($schedule as $day => $periods): ?>
+                            <?= t('pixelopen.googlemybusiness.' . $day) ?>:
+                            <br>
                         <?php endforeach ?>
-                        <br>
-                    <?php endforeach ?>
+                    </div>
+                    <div class="hours">
+                        <?php foreach ($schedule as $day => $periods): ?>
+                            <?php foreach ($periods as $period): ?>
+                                <?= $period != reset($periods) ? ", " : "" ?><?= substr($period['open'], 0, 5) ?> - <?= substr($period['close'], 0, 5) ?>
+                            <?php endforeach ?>
+                            <br>
+                        <?php endforeach ?>
+                    </div>
                 </div>
-            </div>
+            <?php endif ?>
         </div>
     </div>
 </div>
@@ -129,11 +157,12 @@
         outline-color: #4f46e5;
     }
 
-    .phone:hover{
-        color: gray;
+    .location, .phone{
+        color: black;
+        text-decoration: none;
     }
 
-    .location:hover{
+    .location:hover, .phone:hover{
         color: gray;
     }
 </style>
