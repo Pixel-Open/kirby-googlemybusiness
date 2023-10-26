@@ -51,7 +51,7 @@ They respectivly create a reviews container and a button that will open a window
 You can integrate them wherever you need them.
 
 Both plugins are provided with a basic CSS style, it is up to you to modify them according to your website aspect.
-CSS files are located in `assets/` directory.
+You can overwrite propery by creating/modifiying a CSS file and adding `body` before class/id name
 
 The plugin functionnalities work well with Kirby 3 and 4, but some dispositions issues may occur in the panel under Kirby 3.
 

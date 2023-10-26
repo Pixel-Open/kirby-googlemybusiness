@@ -1,8 +1,6 @@
 <?= css('media/plugins/pixelopen/kirby-googlemybusiness/business_info.css') ?>
 
-<div class="business_info">
-    <?php
-        $content = site()->content();
+<?php $content = site()->content();
 $full_address = [];
 if (($address = $content->address()) != '') {
     if (($street_number = $content->street_number()) != '') {
@@ -29,51 +27,49 @@ foreach ($opening_hours as $day_hours) {
             'close' => $day_hours['close'],
         ];
     }
-}
-?>
+} ?>
 
-    <a id="openModal"><?= t('pixelopen.googlemybusiness.business_info.show_info') ?></a>
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <?php if (count($full_address)): ?>
-                <span style="font-weight: bold">&#x1F4CD;</span>
-                <?php if (option('pixelopen.googlemybusiness.placeId') != ''): ?>
-                <a class="location" target="_blank" href="https://www.google.com/maps/place/?q=place_id:<?= option('pixelopen.googlemybusiness.placeId') ?>">
-                    <?= implode(' ', $full_address) ?>
-                </a>
-                <?php else: ?>
-                <span>
-                    <?= implode(' ', $full_address) ?>
-                </span>
-                <?php endif ?>
-                <br>
+<a id="openModal"><?= t('pixelopen.googlemybusiness.business_info.show_info') ?></a>
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <?php if (count($full_address)): ?>
+            <span style="font-weight: bold">&#x1F4CD;</span>
+            <?php if (option('pixelopen.googlemybusiness.placeId') != ''): ?>
+            <a class="location" target="_blank" href="https://www.google.com/maps/place/?q=place_id:<?= option('pixelopen.googlemybusiness.placeId') ?>">
+                <?= implode(' ', $full_address) ?>
+            </a>
+            <?php else: ?>
+            <span>
+                <?= implode(' ', $full_address) ?>
+            </span>
             <?php endif ?>
-            <?php if ($phone != ''): ?>
-                <span>&#x1F4DE;</span> <a class="phone" href="tel:<?= str_replace(' ', '', $phone) ?>"><?= $phone ?></a>
-                <br>
-            <?php endif ?>
-
             <br>
-            
-            <?php if (count($opening_hours) > 0): ?>
-                <div class="opening_hours">
-                    <div class="weekday">
-                        <?php foreach ($schedule as $day => $periods): ?>
-                            <?= t('pixelopen.googlemybusiness.' . $day) ?>:
-                            <br>
-                        <?php endforeach ?>
-                    </div>
-                    <div class="hours">
-                        <?php foreach ($schedule as $day => $periods): ?>
-                            <?php foreach ($periods as $period): ?>
-                                <?= $period != reset($periods) ? ", " : "" ?><?= substr($period['open'], 0, 5) ?> - <?= substr($period['close'], 0, 5) ?>
-                            <?php endforeach ?>
-                            <br>
-                        <?php endforeach ?>
-                    </div>
+        <?php endif ?>
+        <?php if ($phone != ''): ?>
+            <span>&#x1F4DE;</span> <a class="phone" href="tel:<?= str_replace(' ', '', $phone) ?>"><?= $phone ?></a>
+            <br>
+        <?php endif ?>
+
+        <br>
+        
+        <?php if (count($opening_hours) > 0): ?>
+            <div class="opening_hours">
+                <div class="weekday">
+                    <?php foreach ($schedule as $day => $periods): ?>
+                        <?= t('pixelopen.googlemybusiness.' . $day) ?>:
+                        <br>
+                    <?php endforeach ?>
                 </div>
-            <?php endif ?>
-        </div>
+                <div class="hours">
+                    <?php foreach ($schedule as $day => $periods): ?>
+                        <?php foreach ($periods as $period): ?>
+                            <?= $period != reset($periods) ? ", " : "" ?><?= substr($period['open'], 0, 5) ?> - <?= substr($period['close'], 0, 5) ?>
+                        <?php endforeach ?>
+                        <br>
+                    <?php endforeach ?>
+                </div>
+            </div>
+        <?php endif ?>
     </div>
 </div>
 
