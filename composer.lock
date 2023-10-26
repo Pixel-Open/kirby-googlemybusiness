@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7754e2676fd20f6f343089426d9cb0b6",
+    "content-hash": "98d81b00c5846dd66a07346648f371ac",
     "packages": [
         {
             "name": "claviska/simpleimage",
@@ -279,16 +279,16 @@
         },
         {
             "name": "getkirby/cms",
-            "version": "3.9.7",
+            "version": "4.0.0-beta.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getkirby/kirby.git",
-                "reference": "8bb22df36cd6ef9728153a9081c63b875fce1ffc"
+                "reference": "ee62955196d37ef56a992cfe9be7269a3fec625b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getkirby/kirby/zipball/8bb22df36cd6ef9728153a9081c63b875fce1ffc",
-                "reference": "8bb22df36cd6ef9728153a9081c63b875fce1ffc",
+                "url": "https://api.github.com/repos/getkirby/kirby/zipball/ee62955196d37ef56a992cfe9be7269a3fec625b",
+                "reference": "ee62955196d37ef56a992cfe9be7269a3fec625b",
                 "shasum": ""
             },
             "require": {
@@ -357,7 +357,7 @@
                     "homepage": "https://getkirby.com"
                 }
             ],
-            "description": "The Kirby 3 core",
+            "description": "The Kirby core",
             "homepage": "https://getkirby.com",
             "keywords": [
                 "cms",
@@ -376,7 +376,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2023-10-06T10:40:05+00:00"
+            "time": "2023-09-28T14:57:27+00:00"
         },
         {
             "name": "getkirby/composer-installer",
@@ -1922,7 +1922,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "getkirby/cms": 10
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
