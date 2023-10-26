@@ -1,3 +1,5 @@
+<?= css('media/plugins/pixelopen/kirby-googlemybusiness/reviews.css') ?>
+
 <div class="reviews">
     <?php $reviews = collection('reviews') ?>
 
@@ -20,41 +22,3 @@
         <?php endif ?>
     <?php endforeach ?>
 </div>
-
-<style>
-    .reviews{
-        display: flex;
-        gap: 2rem;
-    }
-
-    .review{
-        width: 100%;
-        padding: 2rem;
-        padding-top: 1rem;
-        border-radius: 2rem;
-        background-color: lightgray;
-        position: relative;
-    }
-
-    .rate{
-        font-size: 20px;
-        text-align: center;
-        padding-bottom: 0.7rem;
-    }
-
-    .orange{
-        color: orange;
-    }
-
-    .comment{
-        text-align: justify;
-    }
-
-    .author{
-        font-weight: bold;
-        position: absolute;
-        font-size: 20px;
-        bottom: 1rem;
-        right: 2rem;
-    }
-</style>
