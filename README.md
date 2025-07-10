@@ -1,10 +1,18 @@
-# Kirby Google My Business plugin
+<h1 align="center">
+Kirby Google My Business plugin
+</h1>
+<div align="center">
+A plugin for Kirby CMS to handle Google My Business data
 
-![GitHub release (with filter)](https://img.shields.io/github/v/release/Pixel-Open/kirby-googlemybusiness?style=for-the-badge)
+![GitHub release (with filter)](https://img.shields.io/github/v/release/Pixel-Open/kirby-googlemybusiness)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%208.2-green)](https://php.net/)
+[![Minimum Sulu Version](https://img.shields.io/badge/kirby-%3E%3D%204.0-green)](https://getkirby.com/)
+</div>
 
-[![Dependency](https://img.shields.io/badge/kirby-3.6-cca000.svg?style=for-the-badge)](https://getkirby.com/)
+![](screenshot.png)
 
-A plugin for [Kirby CMS](http://getkirby.com) to handle Google My Business data
+
+
 
 ## Commercial Usage
 
