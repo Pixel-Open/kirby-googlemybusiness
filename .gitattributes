@@ -2,6 +2,7 @@
 .gitattributes export-ignore
 .github/ export-ignore
 .gitignore export-ignore
+.changelogs.md export-ignore
 
 # Development files
 ecs.php export-ignore

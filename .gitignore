@@ -5,6 +5,7 @@
 .project
 .settings
 config.codekit
+composer.lock
 
 ## libs
 /bower_components/
